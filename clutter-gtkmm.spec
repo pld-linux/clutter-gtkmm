@@ -2,7 +2,7 @@ Summary:	C++ wrappers for clutter-gtk library
 Summary(pl.UTF-8):	Obudowanie C++ do biblioteki clutter-gtk
 Name:		clutter-gtkmm
 Version:	1.6.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/clutter-gtkmm/1.6/%{name}-%{version}.tar.xz
