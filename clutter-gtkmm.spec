@@ -117,9 +117,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/clutter-gtkmm-1.0
 %{_pkgconfigdir}/clutter-gtkmm-1.0.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libclutter-gtkmm-1.0.a
+%endif
 
 %files apidocs
 %defattr(644,root,root,755)
