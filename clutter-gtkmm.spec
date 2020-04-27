@@ -1,16 +1,23 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	C++ wrappers for clutter-gtk library
 Summary(pl.UTF-8):	Obudowanie C++ do biblioteki clutter-gtk
 Name:		clutter-gtkmm
 Version:	1.6.0
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/clutter-gtkmm/1.6/%{name}-%{version}.tar.xz
 # Source0-md5:	d4e95d2e90de5114067c9e31fd04979c
 URL:		https://developer.gnome.org/clutter-gtkmm/
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	clutter-gtk-devel >= 1.6.0
 BuildRequires:	cluttermm-devel >= 0.9.6
 BuildRequires:	gtkmm3-devel >= 3.6.0
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	mm-common >= 0.8
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
@@ -57,7 +64,7 @@ Statyczna biblioteka clutter-gtkmm.
 Summary:	clutter-gtkmm API documentation
 Summary(pl.UTF-8):	Dokumentacja API clutter-gtkmm
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
@@ -71,9 +78,14 @@ Dokumentacja API clutter-gtkmm.
 %setup -q
 
 %build
+%{__libtoolize}
+%{__aclocal} -I build
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--disable-silent-rules \
-	--enable-static
+	%{?with_static_libs:--enable-static}
 
 %{__make}
 
