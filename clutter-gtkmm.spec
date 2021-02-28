@@ -64,9 +64,7 @@ Statyczna biblioteka clutter-gtkmm.
 Summary:	clutter-gtkmm API documentation
 Summary(pl.UTF-8):	Dokumentacja API clutter-gtkmm
 Group:		Documentation
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 clutter-gtkmm API documentation.
